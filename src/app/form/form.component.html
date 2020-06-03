@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div style="color: white; background-color:#637a91; height: 100%;" class="text-center col-md-6 offset-3">Get started
+        today!</div>
+    <div class="col-md-6 offset-3" style="border: solid 2px;">
+        <form #form='ngForm'>
+            <div class="form-row mt-4">
+                <div class="col">
+                    <label for=""><b>First Name</b></label>
+                    <input type="text" name='firstname' #firstname='ngModel' ngModel class="form-control" required pattern="^[a-zA-Z]+$">
+                    <div *ngIf='firstname.touched && firstname.invalid' class="error">
+                        <p class="alert alert-danger" *ngIf='firstname.errors.required' style="outline:none">this field is required</p>
+                        <p class="alert alert-danger" *ngIf='firstname.errors.pattern' style="outline:none">this field only accepts characters</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for=""><b>Last Name</b></label>
+                    <input type="text" class="form-control" name='lastname' #lastname='ngModel' ngModel required pattern="^[a-zA-Z]+$">
+                    <div *ngIf='lastname.touched && lastname.invalid' class="error">
+                        <p class="alert alert-danger" *ngIf='lastname.errors.required' style="outline:none">this field is required</p>
+                        <p class="alert alert-danger" *ngIf='lastname.errors.pattern' style="outline:none">this field only accepts characters</p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mt-4 mb-5">
+                <div class="col">
+                    <label for=""><b>Email Address</b></label>
+                    <input type="text" class="form-control" name='email' #email='ngModel' ngModel required email>
+                    <div *ngIf='email.touched && email.invalid' class="error">
+                        <p class="alert alert-danger" *ngIf='email.errors.required' style="outline:none">this field is required</p>
+                        <p class="alert alert-danger" *ngIf='email.errors.email' style="outline:none">must be a valid email Id</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <label for=""><b>Password</b></label>
+                    <input type="text" class="form-control" name='password' #password='ngModel' ngModel required minlength="8" pattern="^[a-zA-Z][a-zA-Z0-9-_.]">
+                    <div *ngIf='password.touched && password.invalid' class="error">
+                        <p class="alert alert-danger" *ngIf='password.errors.required' style="outline:none">this field is required</p>
+                        <p class="alert alert-danger" *ngIf='password.errors.minlength' style="outline:none">must be a atleast 8 characters long</p>
+                        <p class="alert alert-danger" *ngIf='password.errors.pattern' style="outline:none">only numbers(0-9) and letters (A-Z, a-z)are allowed</p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-row mt-4">
+                <div class="col">
+                    <input type="button" class="form-control" value="Claim your free access"
+                        style="background-color: #5fcf80; color: white;">
+                </div>
+            </div>
+            <small>You are agreeing to our <a href="">Tesrms and Services</a></small>
+        </form>
+    </div>
+</div>
